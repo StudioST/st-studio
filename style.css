@@ -13,15 +13,20 @@ body {
     color: #fff;
     font-family: Arial, sans-serif;
     overflow-x: hidden;
+
+    padding-bottom: 115px;
 }
 
 
-/* BACKGROUND GLOW */
+/* =========================
+   BACKGROUND GLOW
+========================= */
 
 body::before {
     content: "";
     position: fixed;
     inset: 0;
+
     z-index: -3;
 
     background:
@@ -39,25 +44,33 @@ body::before {
 
 body::after {
     content: "";
+
     position: fixed;
+
     width: 450px;
     height: 450px;
+
     top: -180px;
     left: -180px;
 
     background: #ff1735;
+
     filter: blur(170px);
+
     opacity: .13;
 
     z-index: -2;
 }
 
 
-/* NAVBAR */
+/* =========================
+   TOP BAR
+========================= */
 
-.navbar {
+.topbar {
     width: 92%;
     max-width: 1250px;
+
     height: 76px;
 
     margin: 22px auto;
@@ -85,53 +98,14 @@ body::after {
 .logo img {
     width: 52px;
     height: 52px;
+
     object-fit: contain;
 
     filter:
         drop-shadow(0 0 15px rgba(255,255,255,.12));
 }
 
-nav {
-    display: flex;
-    gap: 28px;
-}
-
-nav a {
-    position: relative;
-
-    color: #888;
-
-    text-decoration: none;
-
-    font-size: 13px;
-
-    transition: .3s;
-}
-
-nav a:hover,
-nav a.active {
-    color: #fff;
-}
-
-nav a.active::after {
-    content: "";
-
-    position: absolute;
-
-    width: 18px;
-    height: 2px;
-
-    left: 50%;
-    bottom: -9px;
-
-    transform: translateX(-50%);
-
-    background: #ff263f;
-
-    box-shadow: 0 0 10px #ff263f;
-}
-
-.nav-btn {
+.top-project-btn {
     color: #fff;
 
     text-decoration: none;
@@ -150,7 +124,7 @@ nav a.active::after {
     transition: .3s;
 }
 
-.nav-btn:hover {
+.top-project-btn:hover {
     background: #ed243d;
 
     border-color: #ed243d;
@@ -160,7 +134,9 @@ nav a.active::after {
 }
 
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero {
     width: 92%;
@@ -249,10 +225,13 @@ nav a.active::after {
 }
 
 
-/* BUTTONS */
+/* =========================
+   BUTTONS
+========================= */
 
 .buttons {
     display: flex;
+
     gap: 13px;
 }
 
@@ -312,7 +291,9 @@ nav a.active::after {
 }
 
 
-/* HERO CARD */
+/* =========================
+   HERO CARD
+========================= */
 
 .hero-card {
     position: relative;
@@ -396,6 +377,7 @@ nav a.active::after {
 
 .card-top {
     position: relative;
+
     z-index: 2;
 
     display: flex;
@@ -417,6 +399,7 @@ nav a.active::after {
 
 .dots {
     display: flex;
+
     gap: 5px;
 }
 
@@ -431,6 +414,7 @@ nav a.active::after {
 
 .card-content {
     position: relative;
+
     z-index: 2;
 
     height: 410px;
@@ -481,7 +465,9 @@ nav a.active::after {
 }
 
 
-/* SERVICES */
+/* =========================
+   SERVICES
+========================= */
 
 .services {
     width: 92%;
@@ -630,7 +616,9 @@ nav a.active::after {
 }
 
 
-/* CTA */
+/* =========================
+   CTA
+========================= */
 
 .cta {
     width: 92%;
@@ -681,7 +669,9 @@ nav a.active::after {
 }
 
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer {
     width: 92%;
@@ -715,16 +705,246 @@ footer a {
 }
 
 
-/* MOBILE */
+/* =========================
+   BOTTOM PAGE DOCK
+========================= */
+
+.page-dock {
+    position: fixed;
+
+    left: 50%;
+    bottom: 24px;
+
+    transform: translateX(-50%);
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 8px;
+
+    min-height: 68px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30,30,34,.88),
+            rgba(12,12,15,.78)
+        );
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    border-radius: 22px;
+
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+
+    box-shadow:
+        0 20px 70px rgba(0,0,0,.55),
+        0 0 50px rgba(255,25,55,.07),
+        inset 0 1px rgba(255,255,255,.08);
+}
+
+
+/* DOCK RED / BLUE LIGHT */
+
+.dock-glow {
+    position: absolute;
+
+    width: 130px;
+    height: 45px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,25,55,.28),
+            rgba(55,75,255,.22)
+        );
+
+    filter: blur(30px);
+
+    opacity: .8;
+
+    pointer-events: none;
+}
+
+
+/* DOCK ITEM */
+
+.dock-item {
+    position: relative;
+
+    min-width: 78px;
+    height: 52px;
+
+    padding: 6px 12px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 3px;
+
+    color: #777;
+
+    text-decoration: none;
+
+    border-radius: 16px;
+
+    transition:
+        color .3s ease,
+        background .3s ease,
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.dock-item::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.09),
+            rgba(255,255,255,.025)
+        );
+
+    border: 1px solid rgba(255,255,255,.07);
+
+    opacity: 0;
+
+    transition: .3s;
+
+    z-index: -1;
+}
+
+
+/* ICON */
+
+.dock-icon {
+    font-size: 18px;
+
+    line-height: 1;
+
+    transition: .3s;
+
+    text-shadow:
+        0 0 0 transparent;
+}
+
+
+/* LABEL */
+
+.dock-label {
+    font-size: 9px;
+
+    letter-spacing: .3px;
+
+    white-space: nowrap;
+
+    transition: .3s;
+}
+
+
+/* HOVER */
+
+.dock-item:hover {
+    color: #fff;
+
+    transform: translateY(-3px);
+}
+
+.dock-item:hover::before {
+    opacity: 1;
+}
+
+.dock-item:hover .dock-icon {
+    color: #ff334b;
+
+    text-shadow:
+        0 0 15px rgba(255,40,60,.65);
+}
+
+
+/* ACTIVE */
+
+.dock-item.active {
+    color: #fff;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,40,65,.16),
+            rgba(255,255,255,.045)
+        );
+
+    border: 1px solid rgba(255,50,70,.22);
+
+    box-shadow:
+        0 0 25px rgba(255,30,55,.12),
+        inset 0 1px rgba(255,255,255,.08);
+}
+
+.dock-item.active::after {
+    content: "";
+
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    bottom: 3px;
+
+    border-radius: 50%;
+
+    background: #ff334b;
+
+    box-shadow:
+        0 0 8px #ff334b,
+        0 0 18px rgba(255,40,60,.7);
+}
+
+.dock-item.active .dock-icon {
+    color: #ff334b;
+
+    text-shadow:
+        0 0 15px rgba(255,40,60,.7);
+}
+
+.dock-item.active .dock-label {
+    color: #eee;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 850px) {
 
-    .navbar {
-        width: 94%;
+    body {
+        padding-bottom: 105px;
     }
 
-    nav {
-        display: none;
+    .topbar {
+        width: 94%;
     }
 
     .hero {
@@ -770,12 +990,45 @@ footer a {
 
         gap: 20px;
     }
+
+
+    /* MOBILE DOCK */
+
+    .page-dock {
+        width: calc(100% - 24px);
+
+        bottom: 12px;
+
+        padding: 7px;
+
+        border-radius: 20px;
+
+        justify-content: space-between;
+    }
+
+    .dock-item {
+        flex: 1;
+
+        min-width: 0;
+
+        height: 53px;
+
+        padding: 5px 4px;
+    }
+
+    .dock-label {
+        font-size: 8px;
+    }
+
+    .dock-icon {
+        font-size: 17px;
+    }
 }
 
 
 @media (max-width: 500px) {
 
-    .nav-btn {
+    .top-project-btn {
         padding: 11px 13px;
 
         font-size: 10px;
@@ -823,6 +1076,15 @@ footer a {
 
     footer {
         justify-content: center;
+
         text-align: center;
+    }
+
+    .dock-label {
+        font-size: 7px;
+    }
+
+    .dock-item {
+        height: 50px;
     }
 }
